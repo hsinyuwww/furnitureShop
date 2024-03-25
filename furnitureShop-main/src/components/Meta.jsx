@@ -11,9 +11,11 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Welcome To ProShop',
-  description: 'We sell the best products for cheap',
-  keywords: 'electronics, buy electronics, cheap electroincs',
+  title: 'Welcome To Urban Edge!',
+  description:
+    'Urban Edge offers unique, high-quality pieces for every room in your home.',
+  keywords:
+    'furniture, home decor, modern furniture, living room, bedroom, dining room, office furniture, stylish, quality, Urban Edge',
 };
 
 export default Meta;

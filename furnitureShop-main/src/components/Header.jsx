@@ -8,6 +8,7 @@ import { logout } from '../slices/authSlice';
 import SearchBox from './SearchBox';
 import logo from '../assets/logo.png';
 import { resetCart } from '../slices/cartSlice';
+import '../../src/assets/styles/header.css';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -33,12 +34,12 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar className='custom-navbar' expand='md' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <img src={logo} alt='ProShop' />
-              ProShop
+              <img src={logo} alt='UrbanEdge' />
+              Urban Edge
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

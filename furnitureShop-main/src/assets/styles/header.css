@@ -1,0 +1,14 @@
+.custom-navbar {
+  background-color: #ece0d1; /* replace with the color you extracted from the image */
+  color: #333; /* this is typically a good color for dark text */
+}
+
+/* For the links in the navbar, you might want to add a separate color: */
+.custom-navbar a {
+  color: #333; /* or any other color */
+}
+
+/* And for hover states, another one: */
+.custom-navbar a:hover {
+  color: #555;
+}
