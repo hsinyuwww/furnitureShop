@@ -1,26 +1,25 @@
-import { useParams } from 'react-router-dom';
-import products from '../products';
-import { Link } from 'react-router-dom';
-import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
-import Rating from '../components/Rating';
+import products from "../products";
+import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import Rating from "../components/Rating";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 const ProductScreen = () => {
   const { id: productId } = useParams();
-
   const product = products.find((p) => p._id === productId);
   console.log(product);
   return (
     <>
-      <Link className='btn btn-primary my-3' to='/'>
-        GoBack
+      <Link className="btn btn-light my-3" to="/">
+        Go back
       </Link>
       <Row>
         <Col md={5}>
           <Image src={product.image} alt={product.name} fluid />
         </Col>
         <Col md={4}>
-          <ListGroup variant='flush'>
+          <ListGroup variant="flush">
             <ListGroup.Item>
-              <h1>{product.name}</h1>
+              <h3>{product.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
               <Rating
@@ -28,15 +27,18 @@ const ProductScreen = () => {
                 text={`${product.numReviews} reviews`}
               />
             </ListGroup.Item>
-            <ListGroup.Item>price:${product.price}</ListGroup.Item>
+            <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+            <ListGroup.Item>
+              Desciption: <p>{product.description}</p>
+            </ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>
           <Card>
-            <ListGroup variant='flush'>
+            <ListGroup variant="flush">
               <ListGroup.Item>
                 <Row>
-                  <Col>price:</Col>
+                  <Col>Price:</Col>
                   <Col>
                     <strong>${product.price}</strong>
                   </Col>
@@ -44,11 +46,22 @@ const ProductScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Status</Col>
+                  <Col>Status:</Col>
                   <Col>
-                    {product.countInStock > 0 ? 'InStock' : 'OutOfStock'}
+                    <strong>
+                      ${product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+                    </strong>
                   </Col>
                 </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  className="btn-block"
+                  type="button"
+                  disabled={product.countInStock === 0}
+                >
+                  Add to cart
+                </Button>
               </ListGroup.Item>
             </ListGroup>
           </Card>
